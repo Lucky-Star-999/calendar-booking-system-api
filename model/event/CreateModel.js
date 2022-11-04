@@ -18,7 +18,7 @@ exports.isEventIdExists = (eventid) => {
     }));
 }
 
-// Create an event (including invitation) - Not completed ...
+// Create an event (Not including invitation)
 exports.createEvent = (eventid, hostemail, title, starttime, endtime, description, target) => {
     return (new Promise((resolve, reject) => {
         let pool = createPool.createPool();
@@ -27,6 +27,19 @@ exports.createEvent = (eventid, hostemail, title, starttime, endtime, descriptio
         pool.query(query, (err, res) => {
             resolve(1);
             console.log(query);
+            pool.end();
+        })
+    }));
+}
+
+// Create invitation
+exports.createInvitation = (eventid, guestemails) => {
+    return (new Promise((resolve, reject) => {
+        let pool = createPool.createPool();
+        let query = eventCreateQuery.createInvitation(eventid, guestemails);
+
+        pool.query(query, (err, res) => {
+            resolve(1);
             pool.end();
         })
     }));

@@ -11,6 +11,9 @@ exports.createEvent = async (req, res) => {
         let eventid = await eventIdGenerator.getEventid();
         await eventCreateModel.createEvent(eventid, req.query.hostemail, req.query.title,
                 req.query.starttime, req.query.endtime, req.query.description, req.query.target);
+        // req.query.guestemails: 'admin2@gmail.com admin3@gmail.com admin9@gmail.com'
+        await eventCreateModel.createInvitation(eventid, req.query.guestemails);
+
         res.send('Add event successfully');
     }
 }
