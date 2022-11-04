@@ -26,7 +26,6 @@ exports.createEvent = (eventid, hostemail, title, starttime, endtime, descriptio
 
         pool.query(query, (err, res) => {
             resolve(1);
-            console.log(query);
             pool.end();
         })
     }));

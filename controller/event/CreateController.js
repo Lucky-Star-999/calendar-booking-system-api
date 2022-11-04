@@ -2,7 +2,7 @@ const eventCreateModel = require('./../../model/event/CreateModel.js');
 
 const eventIdGenerator = require('./../../service/event/EventIdGenerator.js');
 
-// Create an event (including invitation) - Not completed ...
+// Create an event (including invitation)
 exports.createEvent = async (req, res) => {
     if (req.query.hostemail == '' || req.query.title == '' || 
         req.query.starttime == '' || req.query.endtime == '' || req.query.target == '') {
