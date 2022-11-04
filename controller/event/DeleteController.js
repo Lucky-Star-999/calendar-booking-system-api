@@ -6,5 +6,4 @@ exports.deleteEvent = async (req, res) => {
     await eventDeleteModel.deleteInvitation(req.query.eventid);
 
     res.send('Delete event successfully');
-
 }
