@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+let cors = require("cors");
+
 const port = 9000;
+
+app.use(cors());
 
 // Routes
 const routerUserCreate = require('./routes/user/create.js');
