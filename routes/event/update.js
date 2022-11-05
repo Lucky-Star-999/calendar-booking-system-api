@@ -4,12 +4,15 @@ var router = express.Router();
 var bodyParser = require('body-parser')
 
 // create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+//var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+// create application/json parser
+var jsonParser = bodyParser.json();
 
 const eventUpdateController = require('./../../controller/event/UpdateController.js');
 
-router.put('/update/acceptinvitation', urlencodedParser, eventUpdateController.acceptInvitation);
+router.put('/update/acceptinvitation', jsonParser, eventUpdateController.acceptInvitation);
 
-router.put('/update/declineinvitation', urlencodedParser, eventUpdateController.declineInvitation);
+router.put('/update/declineinvitation', jsonParser, eventUpdateController.declineInvitation);
 
 module.exports = router;
